@@ -1,27 +1,48 @@
+  @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600;700;800&family=Inter:wght@200;300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,600&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,300;1,500;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=Saira:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: none;
+  font-family: 'Poppins', sans-serif;
+}
+/* gloabal spacing */
+.padding-x {
+  @apply sm:px-16 px-6;
+}
+/* hero section */
+.hero {
+  @apply h-[100%] lg:h-[calc(100vh-80px)] bg-[url("/images/herobg.png")] bg-center bg-cover flex  flex-col items-center justify-center gap-5 relative z-0 max-w-[1440px] mx-auto;
+  
+}
+.heroLeft{
+  border-radius: 12px;
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), rgba(255, 255, 255, 0.50);
+backdrop-filter: blur(22px);
+}
+.hero__title {
+  @apply 2xl:text-[56px]   text-[36px]  font-extrabold;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.hero__subtitle {
+  @apply text-[20px]   font-light;
 }
+/* global title for all pages */
+.global__title{
+  @apply text-4xl font-semibold;
+}
+/* services section */
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.seviceRight{
+  fill: linear-gradient(180deg, #DDEEF9 0%, #CCDDE7 86.95%);
+}
+/* review customer card */
+
+.Reviwcard{
+  box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
+  -webkit-box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
+  -moz-box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
 }
