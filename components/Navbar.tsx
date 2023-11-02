@@ -6,6 +6,8 @@ import Link from 'next/link';
 // import Menunav from './Menunav';
 import { navlinks } from '@/constants';
 import { useRouter } from 'next/navigation';
+import Menunav from './Menunav';
+import  {Languages}  from './Languages';
 // import ShopDropdown from './ShopDropdown';
 
 
@@ -20,7 +22,7 @@ function Navbar() {
 
     return (
         <>
-            <header className=' h-[80px] px-16 sm:padding-x bg-[FFF] flex justify-between items-center '>
+            <header className='sticky top-0 z-10 bg-[#FFF] h-[80px] px-16 sm:padding-x  flex justify-between items-center '>
 
 
 <div className="hidden lg:block ">
@@ -30,20 +32,21 @@ function Navbar() {
                     
                     {
                         navlinks.map((item, ind) => (
-                            <Link key={ind} className='mx-6 flex items-center text-[#111535] text-lg font-medium hover:text-[#07A29E]' href={item.url}>{item.title}</Link>
+                            <Link key={ind} className='mx-6 flex items-center text-[#111535] text-lg font-medium hover:text-[#AF2245]' href={item.url}>{item.title}</Link>
                         ))
                     }
                 </div>
                 </div>
 
-                <div className='hidden lg:block '>
+                <div className='hidden sm:flex'>
+                    <Languages/>
 
-                  <button className='bg-[#07A29E] text-lg font-normal p-2 w-[160px] h-[50px] rounded-md text-[#FFF]'>LOGIN</button>
+                  <button className='bg-[#AF2245] ml-10 text-lg font-normal p-2 w-[160px] h-[50px] rounded-[8px] text-[#FFF]'>LOGIN</button>
                 </div>
 
-                <div className="block lg:hidden">
+                <div className="flex flex-col justify-center  lg:hidden">
 
-toggle
+<Menunav/>
 </div>
 
             </header>

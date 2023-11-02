@@ -11,10 +11,20 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
     "@mui/styled-engine-sc": "^5.14.11",
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "i18next": "^23.5.1",
+    "lucide-react": "^0.284.0",
     "next": "13.5.4",
+    "next-intl": "^2.20.2",
     "react": "^18",
     "react-dom": "^18",
     "react-i18next": "^13.2.2",
@@ -22,7 +32,9 @@
     "react-slick": "^0.29.0",
     "react-star-ratings": "^2.3.0",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",

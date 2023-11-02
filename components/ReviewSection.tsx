@@ -117,8 +117,8 @@ function ReviewSection() {
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                     infinite: true,
                     dots: true,
                 },
@@ -152,7 +152,7 @@ function ReviewSection() {
         <>
 
             <div className="padding-x mt-10">
-                <h1 className='global__title my-5 flex text-[#07A29E]'> <Image src="/images/Line.png" alt='not found' width={30} height={30} className='mr-[10px]' /> Customer Review</h1>
+                <h1 className='global__title my-5  text-[#AF2245]'>Customer Review</h1>
 
                 <Slider {...settings} >
 

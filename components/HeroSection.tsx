@@ -5,7 +5,7 @@ function HeroSection() {
    <div className="hero py-10 padding-x">
 
 
-   <h1 className="hero__title text-[#111535] text-center">We Provide <span className='text-[#07A29E]'>Medical Services</span> <br className='hiddden lg:block' />
+   <h1 className="hero__title text-[#111535] text-center">We Provide <span className='text-[#AF2245]'>Medical Services</span> <br className='hiddden lg:block' />
 That You Can Trust!</h1>
 
 <div className="lg:w-[50%] w-[100%] sm:w-[80%] my-5">
@@ -16,7 +16,7 @@ Lorem ipsum dolor sit amet consectetur. Risus nec ullamcorper purus egestas. Fus
 </p>
 </div>
 
-<button className='bg-[#07A29E] text-lg font-normal p-2 w-[160px] h-[50px] rounded-md text-[#FFF]'>Contact Now</button>
+<button className='bg-[#AF2245] text-lg font-normal p-2 w-[160px] h-[50px] rounded-[8px] text-[#FFF]'>Contact Now</button>
 
 
    </div>
