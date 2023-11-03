@@ -170,8 +170,8 @@ function page() {
         <>
 
             {/* labarotry herosection  start*/}
-            <div className="padding-x  bg-[#CADBE7] py-10">
-                <div className="flex gap-5 justify-between">
+            <div className="padding-x bg-red-700 bg-opacity-10 py-10">
+                <div className="flex flex-col lg:flex-row gap-5 justify-between">
 
                     <button className='flex items-center'><Image className='mx-4' src="/images/arrow.svg" alt='not found' width={50} height={50} /> <span className='mx-4'>Back</span></button>
 
@@ -179,7 +179,7 @@ function page() {
 
                     <div className="flex  items-center gap-5">
 
-                        <input type='progess' className='bg-[#07A29E] w-[20%] h-[3px]' />
+                        <input type='progess' className='bg-[#AF2245] w-[20%] h-[3px]' />
                         <input type='progess' className='bg-[#FFF] w-[20%] h-[3px]' />
                         <input type='progess' className='bg-[#FFF] w-[20%] h-[3px]' />
                         <input type='progess' className='bg-[#FFF] w-[20%] h-[3px]' />
@@ -191,8 +191,30 @@ function page() {
 
                 </div>
                 <div className="flex justify-between mt-5 items-center">
-                        <div className="left">left</div>
-                        <div className="right">
+                        <div className="left w-[60%]">
+                     <h1 className="global__title">Lab Tests & packages</h1>
+
+
+                     <div className=" gap-5 flex mt-12">
+
+                        <div className="w-[50%]  h-[50px] rounded-[5px] flex justify-between bg-red-700 bg-opacity-10  text-[#AF2245] text-lg font-semibold p-3">   
+                        
+                         <h1 className="flex items-center"><Image className='mx-2' src="/images/location.png" alt='not found' width={20} height={20}/> Location</h1>
+                         <Image src="/images/line.png" alt='not found' width={2} height={10}/>
+                
+                         <h1 className="flex items-center">Saudi Arabia<Image className='mx-2' src="/images/bottomarrow.png" alt='not found' width={20} height={20}/></h1>
+                        
+                        </div>
+                        <div className=" w-[50%] h-[50px] p-3  flex justify-between items-center rounded-[5px] bg-[#FFF]">
+                         <input className='w-[80%] h-[50px] outline-none ' placeholder='Search your lab tests & Packages ' type="text" />
+                         <Image src="/images/search.svg" alt='not found' width={50} height={50}/>
+
+                        </div>
+                     </div>
+    
+
+                        </div>
+                        <div className="w-[30%] right">
                             <div className="w-[238px] h-[235px] relative">
                                 <Image src="/images/packge.png" alt='not found' fill />
 
@@ -208,7 +230,7 @@ function page() {
 
             {/* labortry enbd */}
             <div className="padding-x">
-                <h1 className="global__title py-10">body function or health concern</h1>
+                <h1 className="global__title py-10">Body Function or Health Concern</h1>
 
                 <div className="flex flex-wrap gap-5 justify-center lg:justify-between ">
 
@@ -221,7 +243,7 @@ function page() {
 
                                     <Image src={item.img} alt='not found' width={80} height={80} />
 
-                                    <h1 className="text-[#07A29E] text-sm font-semibold mt-5">{item.title}</h1>
+                                    <h1 className="text-[#AF2245] text-sm font-semibold mt-5">{item.title}</h1>
 
 
 
@@ -262,11 +284,12 @@ function page() {
 
                                         <Image src={item.img} alt='not found' width={130} height={90} />
 
-                                        <h1 className="text-[#07A29E] text-sm font-semibold mt-5">{item.title}</h1>
+                                        <h1 className="text-[#AF2245] text-sm font-semibold mt-5">{item.title}</h1>
 
 
 
                                     </Link>
+                                   
 
 
 
@@ -274,6 +297,7 @@ function page() {
 
                             ))
                         }
+                         <button className= 'w-full shadow-md py-3 bg-[#FFF] rounded-[5px] border-[#AF2245] text-[#AF2245] border-[1px]'>Sell All</button>
                     </div>
 
 
@@ -282,17 +306,17 @@ function page() {
                     <div className='w-full md:w-[35%] flex flex-col items-start'>
                         <h2 className='selectedCard'>Selected test</h2>
                         <div className='w-full rounded-[7px] flex flex-col items-center justify-center mt-3 gap-5 bg-[#F6F7F9] py-5 px-5'>
-                            <div className='flex items-center justify-center gap-5 py-4 px-10 rounded-[13px]' style={{ background: 'rgba(7, 162, 158, 0.10)' }}>
-                                <h2 className='text-[#07A29E] text-sm font-semibold'>Pregnancy Test Serum (BHCG)</h2>
+                            <div className='flex items-center justify-center  bg-red-700 bg-opacity-10 gap-5 py-4 px-10 rounded-[13px]'>
+                                <h2 className='text-[#AF2245] text-sm font-semibold '>Pregnancy Test Serum (BHCG)</h2>
                                 <div className='flex justify-center items-center gap-2'>
                                     <span className='text-xl w-7 h-7 flex justify-center item-center rounded-full border border-white' style={{ background: 'rgba(27, 43, 58, 0.10)' }}>-</span>
                                     <span className='text-xl ' >1</span>
-                                    <span className='text-xl w-7 h-7 flex justify-center bg-[#07A29E] item-center rounded-full border border-white text-white' >+</span>
+                                    <span className='text-xl w-7 h-7 flex justify-center bg-[#AF2245] item-center rounded-full border border-white text-white' >+</span>
                                 </div>
 
                             </div>
 
-                            <button className=' w-full bg-[#07A29E] flex items-center justify-center gap-5 py-4 px-10 rounded-[13px] text-white ' >
+                            <button className=' w-full bg-[#AF2245] flex items-center justify-center gap-5 py-4 px-10 rounded-[13px] text-white ' >
 
                                 Continue
 
