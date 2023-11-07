@@ -1,8 +1,11 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 
@@ -159,13 +162,78 @@ const pakeges: pakeges[] = [
 
 
 
-
+interface SampleArrowProps {
+    className?: string;
+    style?: React.CSSProperties;
+    onClick?: () => void;
+}
 
 
 
 
 
 function page() {
+
+    const SampleNextArrow: React.FC<SampleArrowProps> = ({ className, style, onClick }) => {
+        return null; // Replace with your desired content
+    };
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        initialSlide: 0,
+        swipeToSlide: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SampleNextArrow />,
+        responsive: [
+            {
+                breakpoint: 1280,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: false,
+                },
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 750,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 0,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 0,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
     return (
         <>
 
@@ -173,7 +241,8 @@ function page() {
             <div className="padding-x bg-red-700 bg-opacity-10 py-10">
                 <div className="flex flex-col lg:flex-row gap-5 justify-between">
 
-                    <button className='flex items-center'><Image className='mx-4' src="/images/arrow.svg" alt='not found' width={50} height={50} /> <span className='mx-4'>Back</span></button>
+                    <button className='flex items-center'>
+                        <Image className='mx-4' src="/images/arrow.svg" alt='not found' width={50} height={50} /> <span className='mx-4'>Back</span></button>
 
 
 
@@ -187,41 +256,37 @@ function page() {
 
                     </div>
 
-                   
+
 
                 </div>
-                <div className="flex justify-between mt-5 items-center">
-                        <div className="left w-[60%]">
-                     <h1 className="global__title">Lab Tests & packages</h1>
+                <div className="flex flex-col sm:flex-row justify-between mt-5 items-center">
+                    <div className="left w-[60%]">
+                        <h1 className="global__title">Lab Tests & packages</h1>
 
 
-                     <div className=" gap-5 flex mt-12">
+                        <div className=" gap-5 flex mt-12">
 
-                        <div className="w-[50%]  h-[50px] rounded-[5px] flex justify-between bg-red-700 bg-opacity-10  text-[#AF2245] text-lg font-semibold p-3">   
-                        
-                         <h1 className="flex items-center"><Image className='mx-2' src="/images/location.png" alt='not found' width={20} height={20}/> Location</h1>
-                         <Image src="/images/line.png" alt='not found' width={2} height={10}/>
-                
-                         <h1 className="flex items-center">Saudi Arabia<Image className='mx-2' src="/images/bottomarrow.png" alt='not found' width={20} height={20}/></h1>
-                        
-                        </div>
-                        <div className=" w-[50%] h-[50px] p-3  flex justify-between items-center rounded-[5px] bg-[#FFF]">
-                         <input className='w-[80%] h-[50px] outline-none ' placeholder='Search your lab tests & Packages ' type="text" />
-                         <Image src="/images/search.svg" alt='not found' width={50} height={50}/>
+                            <div className="w-full sm:w-[50%]  h-[50px] rounded-[5px] flex justify-between bg-red-700 bg-opacity-10  text-[#AF2245] text-lg font-semibold p-3">
 
-                        </div>
-                     </div>
-    
+                                <h1 className="flex items-center"><Image className='mx-2' src="/images/location.png" alt='not found' width={20} height={20} /> Location</h1>
+                                <Image src="/images/line.png" alt='not found' width={2} height={10} />
 
-                        </div>
-                        <div className="w-[30%] right">
-                            <div className="w-[238px] h-[235px] relative">
-                                <Image src="/images/packge.png" alt='not found' fill />
+                                <h1 className="flex items-center">Saudi Arabia<Image className='mx-2' src="/images/bottomarrow.png" alt='not found' width={20} height={20} /></h1>
 
                             </div>
+
                         </div>
 
+
                     </div>
+                    <div className="w-[30%] right">
+                        <div className="w-[238px] h-[235px] relative">
+                            <Image src="/images/packge.png" alt='not found' fill />
+
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
 
@@ -232,7 +297,8 @@ function page() {
             <div className="padding-x">
                 <h1 className="global__title py-10">Body Function or Health Concern</h1>
 
-                <div className="flex flex-wrap gap-5 justify-center lg:justify-between ">
+                {/* this is for desktop versions */}
+                <div className="hidden sm:flex flex-wrap gap-5 justify-center lg:justify-between ">
 
 
                     {
@@ -264,6 +330,36 @@ function page() {
 
 
                 </div>
+                {/* this for mobile version */}
+                <div className="block sm:hidden">
+                    <Slider {...settings} >
+
+
+
+                        {
+                            testbodies.map((item, ind) => (
+                                <div className=" bg-[#e9e8e8] rounded-[8px] w-[155px] h-[177px]" key={ind}>
+
+                                    <Link href="#" key={item.title} className='flex flex-col items-center justify-center w-[100%] h-[100%]'>
+
+                                        <Image src={item.img} alt='not found' width={80} height={80} />
+
+                                        <h1 className="text-[#AF2245] text-sm font-semibold mt-5">{item.title}</h1>
+
+
+
+                                    </Link>
+
+
+
+                                </div>
+
+                            ))
+                        }
+
+
+                    </Slider>
+                </div>
 
 
 
@@ -271,10 +367,15 @@ function page() {
                 {/* pakeges component */}
 
                 <h1 className="global__title py-10 uppercase mt-5">Most help packages</h1>
+
                 <div className='mt-5 flex flex-wrap gap-5 justify-center lg:justify-between align-top'>
 
                     <div className='w-full md:w-[60%] flex flex-wrap gap-5 justify-center '>
+                        <div className="Reviwcard w-full  h-[50px] p-3  flex justify-between items-center rounded-[5px] bg-[#FFF]">
+                            <input className='w-[80%] h-[50px] outline-none ' placeholder='Search your lab tests & Packages ' type="text" />
+                            <Image src="/images/search.svg" alt='not found' width={50} height={50} />
 
+                        </div>
 
                         {
                             pakeges.map((item, ind) => (
@@ -289,7 +390,7 @@ function page() {
 
 
                                     </Link>
-                                   
+
 
 
 
@@ -297,8 +398,9 @@ function page() {
 
                             ))
                         }
-                         <button className= 'w-full shadow-md py-3 bg-[#FFF] rounded-[5px] border-[#AF2245] text-[#AF2245] border-[1px]'>Sell All</button>
+                        <button className='w-full shadow-md py-3 bg-[#FFF] rounded-[5px] border-[#AF2245] text-[#AF2245] border-[1px]'>Sell All</button>
                     </div>
+
 
 
 
@@ -324,6 +426,63 @@ function page() {
                         </div>
                     </div>
                 </div>
+
+
+                {/* tests start */}
+
+
+
+                <h1 className="global__title py-10 uppercase mt-5">Our featured tests</h1>
+
+                <div className='mt-5 flex flex-wrap gap-5 justify-center lg:justify-between align-top'>
+
+                    <div className='w-full md:w-[60%] flex flex-wrap gap-5 justify-center '>
+
+
+                        {
+                            pakeges.map((item, ind) => (
+                                <div className="Reviwcard  rounded-[6px] w-[230px] h-[135px] text-center" key={ind}>
+
+                                    <Link href="#" key={item.title} className='flex flex-col items-center justify-center w-[100%] h-[100%]'>
+
+                                        <Image src="/images/tests.png" alt='not found' width={50} height={50} />
+
+                                        <h1 className="text-[#AF2245] text-sm font-semibold mt-5">{item.title}</h1>
+
+
+
+                                    </Link>
+
+
+
+
+                                </div>
+
+                            ))
+                        }
+                        <button className='w-full shadow-md py-3 bg-[#FFF] rounded-[5px] border-[#AF2245] text-[#AF2245] border-[1px]'>Sell All</button>
+                    </div>
+
+
+
+
+
+                    <div className='w-full md:w-[35%] '>
+
+                    </div>
+                </div>
+
+
+                {/* tests end  */}
+
+
+
+
+
+
+
+
+
 
 
             </div>

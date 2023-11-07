@@ -5,11 +5,12 @@ import HeroSection from '@/components/HeroSection'
 import JoinSection from '@/components/JoinSection'
 import ReviewSection from '@/components/ReviewSection'
 import ServiceSection from '@/components/ServiceSection'
-import Image from 'next/image'
+import Image from 'next/image';
 
-export default function Home() {
+const Home=async()=> {
   return (
     <main className="">
+
       <HeroSection/>
       <ServiceSection/>
       <AboutSection/>
@@ -22,3 +23,4 @@ export default function Home() {
     </main>
   )
 }
+export default  Home;
