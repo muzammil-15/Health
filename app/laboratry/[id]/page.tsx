@@ -261,10 +261,10 @@ function page() {
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between mt-5 items-center">
                     <div className="left w-full sm:w-[60%]">
-                        <h1 className="global__title">Lab Tests & packages</h1>
+                        <h1 className="global__title">Full Body</h1>
 
 
-                        <div className=" gap-5 flex mt-12">
+                        <div className=" gap-5 flex flex-col sm:flex-row mt-12">
 
                             <div className="w-full sm:w-[50%]  h-[50px] rounded-[5px] flex justify-between bg-red-700 bg-opacity-10  text-[#AF2245] text-lg font-semibold p-3">
 
@@ -274,17 +274,17 @@ function page() {
                                 <h1 className="flex items-center">Saudi Arabia<Image className='mx-2' src="/images/bottomarrow.png" alt='not found' width={20} height={20} /></h1>
 
                             </div>
+                            <div className="sm:w-[50%] w-full  h-[50px] p-3  flex justify-between items-center rounded-[5px] bg-[#FFF]">
+                                <input className='w-[80%] h-[50px] outline-none ' placeholder='Search your lab tests & Packages ' type="text" />
+                                <Image src="/images/search.svg" alt='not found' width={50} height={50} />
+
+                            </div>
 
                         </div>
 
 
                     </div>
-                    <div className="w-full sm:w-[30%] right">
-                        <div className="w-[238px] h-[235px] relative">
-                            <Image src="/images/packge.png" alt='not found' fill />
-
-                        </div>
-                    </div>
+                   
 
                 </div>
 
@@ -295,71 +295,7 @@ function page() {
 
             {/* labortry enbd */}
             <div className="padding-x">
-                <h1 className="global__title py-10">Body Function or Health Concern</h1>
 
-                {/* this is for desktop versions */}
-                <div className="hidden sm:flex flex-wrap gap-5 justify-center lg:justify-between ">
-
-
-                    {
-                        testbodies.map((item, ind) => (
-                            <div className="Reviwcard bg-[#FFF] hover:bg-[#e9e8e8] rounded-[8px] w-[155px] h-[177px]" key={ind}>
-
-                                <Link href="#" key={item.title} className='flex flex-col items-center justify-center w-[100%] h-[100%]'>
-
-                                    <Image src={item.img} alt='not found' width={80} height={80} />
-
-                                    <h1 className="text-[#AF2245] text-sm font-semibold mt-5">{item.title}</h1>
-
-
-
-                                </Link>
-
-
-
-                            </div>
-
-                        ))
-                    }
-
-
-
-
-
-
-
-
-                </div>
-                {/* this for mobile version */}
-                <div className="block sm:hidden">
-                    <Slider {...settings} >
-
-
-
-                        {
-                            testbodies.map((item, ind) => (
-                                <div className=" bg-[#e9e8e8] rounded-[8px] w-[155px] h-[177px]" key={ind}>
-
-                                    <Link href="#" key={item.title} className='flex flex-col items-center justify-center w-[100%] h-[100%]'>
-
-                                        <Image src={item.img} alt='not found' width={80} height={80} />
-
-                                        <h1 className="text-[#AF2245] text-sm font-semibold mt-5">{item.title}</h1>
-
-
-
-                                    </Link>
-
-
-
-                                </div>
-
-                            ))
-                        }
-
-
-                    </Slider>
-                </div>
 
 
 
@@ -371,11 +307,7 @@ function page() {
                 <div className='mt-5 flex flex-wrap gap-5 justify-center lg:justify-between align-top'>
 
                     <div className='w-full md:w-[60%] flex flex-wrap gap-5 justify-center '>
-                        <div className="Reviwcard w-full  h-[50px] p-3  flex justify-between items-center rounded-[5px] bg-[#FFF]">
-                            <input className='w-[80%] h-[50px] outline-none ' placeholder='Search your lab tests & Packages ' type="text" />
-                            <Image src="/images/search.svg" alt='not found' width={50} height={50} />
 
-                        </div>
 
                         {
                             pakeges.map((item, ind) => (
