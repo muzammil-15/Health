@@ -65,11 +65,12 @@ import { Label } from "@/components/ui/label"
 
 const ModalLocation=()=> {
   return (
-    <Dialog>
+    <Dialog >
       <DialogTrigger asChild>
         <Button variant="outline">Share</Button>
       </DialogTrigger>
-      <DialogContent className="w-[100vw] bg-[red]">
+      <DialogContent className="w-[1000px] bg-[re] h-[90%]" >
+
         <DialogHeader>
           <DialogTitle>Share link</DialogTitle>
           <DialogDescription>

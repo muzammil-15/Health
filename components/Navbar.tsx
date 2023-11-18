@@ -38,7 +38,7 @@ function Navbar() {
                 </div>
                 </div>
 
-                <div className='hidden sm:flex'>
+                <div className='hidden lg:flex'>
                     <Languages/>
 
                   <button className='bg-[#AF2245] ml-10 text-lg font-normal p-2 w-[160px] h-[50px] rounded-[8px] text-[#FFF]'>LOGIN</button>

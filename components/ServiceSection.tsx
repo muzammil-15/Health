@@ -1,10 +1,11 @@
 "use client"
-import React from 'react';
+import React,{useState} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import VertualModal from './VertualModal';
 
 interface Services {
     title: string;
@@ -171,6 +172,16 @@ function ServiceSection() {
             },
         ],
     };
+
+    const [isModalOpen, setModalOpen] = useState(false);
+
+    const openModal = () =>setModalOpen(true);
+       
+    const closeModal = () => setModalOpen(false);
+
+
+
+
     return (
         <>
 
@@ -194,7 +205,7 @@ function ServiceSection() {
     
                             </div>
     
-                            <button className='text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]'>Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
+                            <button className='text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]' onClick={openModal}>Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
     
     
     
@@ -224,7 +235,7 @@ function ServiceSection() {
     
                             </div>
     
-                            <button className='w-full text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]'>Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
+                            <button className='w-full text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]' >Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
     
     
     
@@ -236,7 +247,7 @@ function ServiceSection() {
                 </Slider>
                </div>
                
-
+               <VertualModal isOpen={isModalOpen} onClose={closeModal} />
             </div>
 
         </>
