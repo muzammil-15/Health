@@ -6,7 +6,6 @@ import JoinSection from '@/components/JoinSection'
 import ReviewSection from '@/components/ReviewSection'
 import ServiceSection from '@/components/ServiceSection'
 import Image from 'next/image';
-import ModalLocation from '@/components/ModalLocation'
 
 const Home=async()=> {
   const accessToken = 'pk.eyJ1IjoiYWJkdWxyYTdtYW4iLCJhIjoiY2xvdnJrcDk3MHYwZjJrcWU4bHRsaTRhaSJ9.92ZDJwJAgFil80ZXA4gQcw';
@@ -15,7 +14,7 @@ const Home=async()=> {
 
       <HeroSection/>
 
-      <ModalLocation/>
+    
       <ServiceSection/>
       <AboutSection/>
       <ReviewSection/> 

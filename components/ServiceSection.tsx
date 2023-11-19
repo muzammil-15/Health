@@ -173,11 +173,15 @@ function ServiceSection() {
         ],
     };
 
-    const [isModalOpen, setModalOpen] = useState(false);
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-    const openModal = () =>setModalOpen(true);
-       
-    const closeModal = () => setModalOpen(false);
+    const openDialog = () => {
+      setIsDialogOpen(true);
+    };
+  
+    const closeDialog = () => {
+      setIsDialogOpen(false);
+    };
 
 
 
@@ -205,7 +209,7 @@ function ServiceSection() {
     
                             </div>
     
-                            <button className='text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]' onClick={openModal}>Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
+                            <button className='text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]' onClick={openDialog}>Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
     
     
     
@@ -247,8 +251,27 @@ function ServiceSection() {
                 </Slider>
                </div>
                
-               <VertualModal isOpen={isModalOpen} onClose={closeModal} />
+             
             </div>
+
+       
+
+
+
+
+
+
+
+
+      
+      
+      <VertualModal isOpen={isDialogOpen} onClose={closeDialog}>
+        <div>
+          <h2 className="text-lg font-bold mb-4">VertualModal Content Goes Here</h2>
+          <p>This is a simple VertualModal content.</p>
+        </div>
+      </VertualModal>
+    
 
         </>
     )
