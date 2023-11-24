@@ -1,22 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600;700;800&family=Inter:wght@200;300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,600&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,300;1,500;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=Saira:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;600;700;800&family=Inter:wght@200;300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,600&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,300;1,500;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=Saira:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap");
 
 @import url('https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet');
-@import url('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css');
-
-
-
-
-
+@import url("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 /* gloabal spacing */
 .padding-x {
@@ -25,12 +19,16 @@
 /* hero section */
 .hero {
   @apply h-[100%] lg:h-[calc(100vh-80px)] bg-[url("/images/herobg.png")] bg-center bg-cover flex  flex-col items-center justify-center gap-5 relative z-0 max-w-[1440px] mx-auto;
-  
 }
-.heroLeft{
+.heroLeft {
   border-radius: 12px;
-background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), rgba(255, 255, 255, 0.50);
-backdrop-filter: blur(22px);
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    ),
+    rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(22px);
 }
 .hero__title {
   @apply 2xl:text-[56px]   text-[36px]  font-extrabold;
@@ -40,45 +38,50 @@ backdrop-filter: blur(22px);
   @apply text-[20px]   font-light;
 }
 /* global title for all pages */
-.global__title{
+.global__title {
   @apply text-4xl font-semibold;
 }
 /* services section */
 
-.seviceRight{
-  fill: linear-gradient(180deg, #DDEEF9 0%, #CCDDE7 86.95%);
+.seviceRight {
+  fill: linear-gradient(180deg, #ddeef9 0%, #ccdde7 86.95%);
 }
 /* review customer card */
 
-.Reviwcard{
-  box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
-  -webkit-box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
-  -moz-box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
+.Reviwcard {
+  box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
+  -webkit-box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
+  -moz-box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
 }
-.ServiceCard{
-
-  box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
-  -webkit-box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
-  -moz-box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
-
+.ServiceCard {
+  box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
+  -webkit-box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
+  -moz-box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
 }
 
-
-.Shadowbg{
-
-  box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
-  -webkit-box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
-  -moz-box-shadow: -1px 0px 11px 8px rgba(212,209,209,0.32);
-
+.Shadowbg {
+  box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
+  -webkit-box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
+  -moz-box-shadow: -1px 0px 11px 8px rgba(212, 209, 209, 0.32);
 }
 
-.selectedCard{
+.selectedCard {
   color: #111535;
   font-family: Poppins;
   font-size: 16.05px;
   font-style: normal;
   font-weight: 600;
   line-height: 16.335px; /* 101.777% */
+  text-transform: capitalize;
+}
+
+.subheading {
+  color: var(--primery, #af2245);
+  font-family: Poppins;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 10.052px; /* 21.853% */
   text-transform: capitalize;
 }
 
@@ -105,3 +108,78 @@ backdrop-filter: blur(22px);
 }
 body {
   margin: 0;} */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #af2245;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
