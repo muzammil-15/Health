@@ -1,9 +1,6 @@
-// components/MyComponent.tsx
-"use client"
-
 import React, { useState } from 'react';
 
-const MyComponent: React.FC = () => {
+const VertualModal: React.FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
@@ -36,9 +33,10 @@ const MyComponent: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
 
 export default VertualModal;
+
