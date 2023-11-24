@@ -141,11 +141,14 @@ function ServiceSection() {
     ],
   };
 
-  const [isModalOpen, setModalOpen] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => setModalOpen(true);
+    const openModal = () =>setModalOpen(true);
+       
+    const closeModal = () => setModalOpen(false);
 
-  const closeModal = () => setModalOpen(false);
+
+
 
   return (
     <>
@@ -155,81 +158,64 @@ function ServiceSection() {
         <div className="hidden mt-10 sm:flex gap-5 justify-center flex-wrap">
           {/* services box */}
 
-          {Servicesoptions.map((item, ind) => (
-            <div
-              className="ServiceCard bg-[#FFF] flex flex-col justify-between hover:bg-[#e9e8e8] w-[220px] h-[228px]"
-              key={ind}
-            >
-              <div className="w-full  flex flex-col items-center p-5">
-                <Image src={item.img} alt="not found" width={50} height={50} />
+                    {
+                        Servicesoptions.map((item,ind)=>(
+                            <div className="ServiceCard bg-[#FFF] flex flex-col justify-between hover:bg-[#e9e8e8] w-[220px] h-[228px]" key={ind}>
+                            <div className="w-full  flex flex-col items-center p-5">
+                                <Image src={item.img} alt='not found' width={50} height={50} />
+    
+                                <h1 className="mt-5 text-sm font-normal text-[#141422]">{item.title}</h1>
+                                <p className="text-[#898B9F] text-[10px] mt-5 font-normal text-center">{item.desc}</p>
+    
+                            </div>
+    
+                            <button className='text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]' onClick={openModal}>Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
+    
+    
+    
+                        </div>
 
-                <h1 className="mt-5 text-sm font-normal text-[#141422]">
-                  {item.title}
-                </h1>
-                <p className="text-[#898B9F] text-[10px] mt-5 font-normal text-center">
-                  {item.desc}
-                </p>
-              </div>
+                        ))
+                    }
 
-              <button
-                className="text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]"
-                onClick={openModal}
-              >
-                Continue{" "}
-                <Image
-                  src="/images/servicearrow.png"
-                  alt="not found"
-                  width={20}
-                  height={20}
-                />
-              </button>
-            </div>
-          ))}
-        </div>
+                   
+                   
 
-        {/* this is for mobile version */}
-        <div className="block sm:hidden">
-          <Slider {...settings}>
-            {Servicesoptions.map((item, ind) => (
-              <div
-                className=" bg-[#e9e8e8] flex flex-col justify-between  w-[220px] h-[228px]"
-                key={ind}
-              >
-                <div className="w-full  flex flex-col items-center p-5">
-                  <Image
-                    src={item.img}
-                    alt="not found"
-                    width={50}
-                    height={50}
-                  />
-
-                  <h1 className="mt-5 text-sm font-normal text-[#141422]">
-                    {item.title}
-                  </h1>
-                  <p className="text-[#898B9F] text-[10px] mt-5 font-normal text-center">
-                    {item.desc}
-                  </p>
                 </div>
 
-                <button className="w-full text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]">
-                  Continue{" "}
-                  <Image
-                    src="/images/servicearrow.png"
-                    alt="not found"
-                    width={20}
-                    height={20}
-                  />
-                </button>
-              </div>
-            ))}
-          </Slider>
-          
-        </div>
-        
-        <VertualModal isModalOpen={isModalOpen} setModalOpen={setModalOpen} closeModal={closeModal}/>
-      </div>
-    </>
-  );
+                {/* this is for mobile version */}
+                <div className='block sm:hidden'>
+                
+                <Slider {...settings} >
+               
+                {
+                        Servicesoptions.map((item,ind)=>(
+                            <div className=" bg-[#e9e8e8] flex flex-col justify-between  w-[220px] h-[228px]" key={ind}>
+                            <div className="w-full  flex flex-col items-center p-5">
+                                <Image src={item.img} alt='not found' width={50} height={50} />
+    
+                                <h1 className="mt-5 text-sm font-normal text-[#141422]">{item.title}</h1>
+                                <p className="text-[#898B9F] text-[10px] mt-5 font-normal text-center">{item.desc}</p>
+    
+                            </div>
+    
+                            <button className='w-full text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]' >Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
+    
+    
+    
+                        </div>
+
+                        ))
+                    }
+                 
+                </Slider>
+               </div>
+               
+               <VertualModal isOpen={isModalOpen} onClose={closeModal} />
+            </div>
+
+        </>
+    )
 }
 
 export default ServiceSection;
