@@ -1,221 +1,275 @@
 "use client";
-import React, { useState } from "react";
-import Image from "next/image";
+
+import { useState } from "react";
 import Link from "next/link";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import VertualModal from "./VertualModal";
+import Image from "next/image";
+import { Montserrat } from "next/font/google";
 
-interface Services {
-  title: string;
-  img: string;
-  desc: string;
-}
+import { usePathname } from "next/navigation";
+import {
+  CalendarClock,
+  MapPin,
+  CalendarDays,
+  FolderArchive,
+  Headphones,
+  LayoutGrid,
+  ListChecks,
+  Microscope,
+  ChevronDown,
+  ChevronUp,
+  LogOut,
+} from "lucide-react";
 
-interface SampleArrowProps {
-  className?: string;
-  style?: React.CSSProperties;
-  onClick?: () => void;
-}
+// import { cn } from "@/lib/utils";
+// import { FreeCounter } from "@/components/free-counter";
 
-const Servicesoptions: Services[] = [
-  {
-    title: "Video Consultation",
-    img: "/images/vdconsult.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
-  },
-  {
-    title: "Laboratory",
-    img: "/images/microscope.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
-  },
-  {
-    title: "Home visit Doctor",
-    img: "/images/homelocation.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
-  },
-  {
-    title: "Nurse visit",
-    img: "/images/nurse.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
-  },
-  {
-    title: "Vitamin IV Drips",
-    img: "/images/drips.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
-  },
-  {
-    title: "Caregiver",
-    img: "/images/Caregiver.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
-  },
-  {
-    title: "Physiotherapist",
-    img: "/images/Physiotherapist.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
-  },
-  {
-    title: "Seasonal Flu Vaccination",
-    img: "/images/Seasonal.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
-  },
+const poppins = Montserrat({ weight: "600", subsets: ["latin"] });
 
+const routes = [
   {
-    title: "Radiology",
-    img: "/images/Radiology.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
+    label: "Dashboard",
+    icon: LayoutGrid,
+    href: "",
+    color: "text-sky-500",
   },
-
   {
-    title: "Vaccination",
-    img: "/images/Vaccination.png",
-    desc: "Emphasizes the company's ability To work on commercial roofing.",
+    label: "Add Health Care",
+    icon: CalendarClock,
+    href: "",
+    color: "text-violet-500",
   },
-];
-
-const SampleNextArrow: React.FC<SampleArrowProps> = ({
-  className,
-  style,
-  onClick,
-}) => {
-  return null; // Replace with your desired content
-};
-
-function ServiceSection() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    swipeToSlide: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SampleNextArrow />,
-    responsive: [
+  {
+    label: "Services",
+    icon: Headphones,
+    color: "text-pink-700",
+    href: "",
+    subRoutes: [
       {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
+        label: "Add Main Service",
+        href: "/admin-dashboard/main-services",
+        color: "text-pink-700",
       },
       {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 750,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 0,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 0,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+        label: "Add Sub Service",
+        href: "/admin-dashboard/sub-service",
+        color: "text-pink-700",
       },
     ],
-  };
+  },
+  {
+    label: "Add Packeges",
+    icon: FolderArchive,
+    color: "text-orange-700",
+    href: "",
+  },
+  {
+    label: "Add Tests",
+    icon: Microscope,
+    color: "text-emerald-500",
+    href: "",
+  },
+  {
+    label: "Join Requests",
+    icon: CalendarDays,
+    color: "text-green-700",
+    href: "",
+    subRoutes: [
+      {
+        label: "Healthcare Request",
+        href: "/add-main-service",
+        color: "text-pink-700",
+      },
+      {
+        label: "Doctor's Request's",
+        href: "/add-sub-service",
+        color: "text-pink-700",
+      },
+    ],
+  },
+  {
+    label: "List of Bookings",
+    icon: ListChecks,
+    color: "text-green-700",
+    href: "",
+    subRoutes: [
+      {
+        label: "V. Cnnsultation",
+        href: "/add-main-service",
+        color: "text-pink-700",
+      },
+      {
+        label: "Home Visit Doctor",
+        href: "/add-sub-service",
+        color: "text-pink-700",
+      },
+      {
+        label: "Home Visit Nurse",
+        href: "/add-sub-service",
+        color: "text-pink-700",
+      },
+    ],
+  },
 
-    const [isModalOpen, setModalOpen] = useState(false);
+  {
+    label: "Zone",
+    icon: MapPin,
+    color: "text-green-700",
+    href: "",
+  },
+];
+// ... (other imports)
+// ... (other imports)
 
-    const openModal = () =>setModalOpen(true);
-       
-    const closeModal = () => setModalOpen(false);
+const DownIcon: React.FC<{ color?: string; size?: number }> = ({ color = '#AF2245', size = 20 }) => (
+  <ChevronDown color={color} size={size} />
+);
 
+const UpIcon: React.FC<{ color?: string; size?: number }> = ({ color = '#AF2245', size = 20 }) => (
+  <ChevronUp color={color} size={size} />
+);
 
-
-
-  return (
-    <>
-      <div className="padding-x mt-10">
-        <h1 className="global__title  text-[#AF2245]">Our Services</h1>
-
-        <div className="hidden mt-10 sm:flex gap-5 justify-center flex-wrap">
-          {/* services box */}
-
-                    {
-                        Servicesoptions.map((item,ind)=>(
-                            <div className="ServiceCard bg-[#FFF] flex flex-col justify-between hover:bg-[#e9e8e8] w-[220px] h-[228px]" key={ind}>
-                            <div className="w-full  flex flex-col items-center p-5">
-                                <Image src={item.img} alt='not found' width={50} height={50} />
-    
-                                <h1 className="mt-5 text-sm font-normal text-[#141422]">{item.title}</h1>
-                                <p className="text-[#898B9F] text-[10px] mt-5 font-normal text-center">{item.desc}</p>
-    
-                            </div>
-    
-                            <button className='text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]' onClick={openModal}>Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
-    
-    
-    
-                        </div>
-
-                        ))
-                    }
-
-                   
-                   
-
-                </div>
-
-                {/* this is for mobile version */}
-                <div className='block sm:hidden'>
-                
-                <Slider {...settings} >
-               
-                {
-                        Servicesoptions.map((item,ind)=>(
-                            <div className=" bg-[#e9e8e8] flex flex-col justify-between  w-[220px] h-[228px]" key={ind}>
-                            <div className="w-full  flex flex-col items-center p-5">
-                                <Image src={item.img} alt='not found' width={50} height={50} />
-    
-                                <h1 className="mt-5 text-sm font-normal text-[#141422]">{item.title}</h1>
-                                <p className="text-[#898B9F] text-[10px] mt-5 font-normal text-center">{item.desc}</p>
-    
-                            </div>
-    
-                            <button className='w-full text-[#AF2245] text-lg font-bold p-2 flex justify-center items-center border-t-2 border-[#CDCDCD]' >Continue <Image src="/images/servicearrow.png" alt='not found' width={20} height={20} /></button>
-    
-    
-    
-                        </div>
-
-                        ))
-                    }
-                 
-                </Slider>
-               </div>
-               
-               <VertualModal isOpen={isModalOpen} onClose={closeModal} />
-            </div>
-
-        </>
-    )
+interface SubRoute {
+  label: string;
+  href: string;
+  color: string;
 }
 
-export default ServiceSection;
+interface Route {
+  label: string;
+  icon: React.ComponentType<{ className?: string; color?: string }>;
+  color: string;
+  href: string;
+  subRoutes?: SubRoute[];
+}
+
+const renderSubRoutes = (subRoutes: SubRoute[], setShowSubRoutes: React.Dispatch<React.SetStateAction<boolean>>) => {
+  return (
+    <div className="ml-4 space-y-1 mt-2">
+      {subRoutes.map((subRoute) => (
+        <Link
+          key={subRoute.href}
+          href={subRoute.href}
+          className="flex p-[14px] w-full text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245]"
+        >
+          <div className="flex items-center flex-1">
+            {subRoute.label}
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+};
+
+export const Sidebar: React.FC = () => {
+  const [showServicesSubRoutes, setShowServicesSubRoutes] = useState(false);
+  const [showJoinRequestsSubRoutes, setShowJoinRequestsSubRoutes] = useState(false);
+  const [showListBookingsSubRoutes, setShowListBookingsSubRoutes] = useState(false);
+
+  const toggleSubRoutes = (setShowSubRoutes: React.Dispatch<React.SetStateAction<boolean>>) => {
+    setShowSubRoutes((prev) => !prev);
+  };
+
+  const pathname = usePathname();
+
+  return (
+    <div className="space-y-4 py-4 px-4 flex gap-5 flex-col h-full bg-[#FFFFFF] border border-r-2 overflow-y-scroll">
+      <div className="px-3 py-2 flex-1">
+        <Link href="/" className="">
+          <div className="relative h-[74px] w-[89px] mr-4">
+            <Image fill alt="Logo" src="/images/logo.png" />
+          </div>
+        </Link>
+        <hr className="mt-3 text-[5px]" />
+        <div className="space-y-1 mt-5">
+          {routes.map((route: Route) => (
+            <div key={route.href} className="relative">
+              {route.subRoutes ? (
+                // Render dropdown with sub-routes
+                <>
+                  <div
+                    onClick={() => {
+                      if (route.label === "Services") {
+                        toggleSubRoutes(setShowServicesSubRoutes);
+                      } else if (route.label === "Join Requests") {
+                        toggleSubRoutes(setShowJoinRequestsSubRoutes);
+                      } else if (route.label === "List of Bookings") {
+                        toggleSubRoutes(setShowListBookingsSubRoutes);
+                      } else {
+                        // Handle other route clicks
+                        // You can add similar logic for other routes if needed
+                      }
+                    }}
+                    className="flex p-[14px] w-full text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition relative hover:text-[#AF2245]"
+                  >
+                    <div className="flex items-center flex-1">
+                      <route.icon
+                        className={"h-[30px] w-[30px] mr-3"}
+                        color="#505F65"
+                      />
+                      {route.label}
+                    </div>
+                    {route.label === "Services" && (
+                      <div className="absolute top-[50%] right-4 transform -translate-y-1/2">
+                        {showServicesSubRoutes ? (
+                          <UpIcon />
+                        ) : (
+                          <DownIcon />
+                        )}
+                      </div>
+                    )}
+                    {route.label === "Join Requests" && (
+                      <div className="absolute top-[50%] right-4 transform -translate-y-1/2">
+                        {showJoinRequestsSubRoutes ? (
+                          <UpIcon />
+                        ) : (
+                          <DownIcon />
+                        )}
+                      </div>
+                    )}
+                    {route.label === "List of Bookings" && (
+                      <div className="absolute top-[50%] right-4 transform -translate-y-1/2">
+                        {showListBookingsSubRoutes ? (
+                          <UpIcon />
+                        ) : (
+                          <DownIcon />
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  {route.label === "Services" && showServicesSubRoutes && renderSubRoutes(route.subRoutes, setShowServicesSubRoutes)}
+                  {route.label === "Join Requests" && showJoinRequestsSubRoutes && renderSubRoutes(route.subRoutes, setShowJoinRequestsSubRoutes)}
+                  {route.label === "List of Bookings" && showListBookingsSubRoutes && renderSubRoutes(route.subRoutes, setShowListBookingsSubRoutes)}
+                </>
+              ) : (
+                // Render regular route
+                <Link
+                  href={route.href}
+                  className="flex p-[14px] w-full text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245]"
+                >
+                  <div className="flex items-center flex-1">
+                    <route.icon
+                      className={"h-[30px] w-[30px] mr-3"}
+                      color="#505F65"
+                    />
+                    {route.label}
+                  </div>
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <Link
+          href={""}
+          className="flex p-[14px] w-full text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245]"
+        >
+          <div className="flex items-center flex-1">
+            <LogOut color="#Af2245" className={"h-[30px] w-[30px] mr-3"} />
+            LogOut
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+};
