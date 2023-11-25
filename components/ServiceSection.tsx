@@ -69,7 +69,7 @@ const Servicesoptions: Services[] = [
 
   {
     title: "Vaccination",
-    img: "/images/Vaccination.png",
+    img: "/images/vaccination.png",
     desc: "Emphasizes the company's ability To work on commercial roofing.",
   },
 ];

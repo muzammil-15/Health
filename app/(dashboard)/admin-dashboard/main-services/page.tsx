@@ -1,5 +1,7 @@
 "use client";
 
+import AddMainService from "@/components/AddMainService";
+import VertualModal from "@/components/VertualModal";
 import {
   Accordion,
   AccordionContent,
@@ -111,9 +113,19 @@ const MianServices: React.FC = () => {
       ));
   };
 
+
+
   const handlePageChange = (newPage: number): void => {
     setCurrentPage(newPage);
   };
+
+  
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+
+  const closeModal = () => setModalOpen(false);
 
   return (
     <div className="padding-x  py-10">
@@ -148,7 +160,7 @@ const MianServices: React.FC = () => {
                 height={50}
               />
             </div>
-            <button className="flex gap-2 justify-center py-2 px-10 rounded-lg items-center border border-[#af2245] bg-[#AF22451A]  text-[#af2245] ">
+            <button onClick={openModal} className="flex gap-2 border-dashed justify-center py-2 px-10 rounded-lg items-center border border-[#af2245] bg-[#AF22451A]  text-[#af2245] ">
               <Plus color="#af2245" /> <span>Add New Service</span>
             </button>
           </div>
@@ -184,6 +196,7 @@ const MianServices: React.FC = () => {
           <ChevronRight color="#af2245" />
         </button>
       </div>
+      <AddMainService isModalOpen={isModalOpen} setModalOpen={setModalOpen} closeModal={closeModal}/>
     </div>
   );
 };

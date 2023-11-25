@@ -11,8 +11,8 @@ interface MyComponentProps {
   closeModal: () => void;
 }
 
-const VertualModal:  React.FC<MyComponentProps> = ({ isModalOpen, setModalOpen, closeModal }) => {
-
+const AddMainService:  React.FC<MyComponentProps> = ({ isModalOpen, setModalOpen, closeModal }) => {
+  
 
   interface Services {
     title: string;
@@ -62,7 +62,6 @@ const VertualModal:  React.FC<MyComponentProps> = ({ isModalOpen, setModalOpen, 
       desc: "Michael Anderson",
     },
   ];
-
 
 
   return (
@@ -185,4 +184,4 @@ const VertualModal:  React.FC<MyComponentProps> = ({ isModalOpen, setModalOpen, 
   );
 };
 
-export default VertualModal;
+export default AddMainService;
