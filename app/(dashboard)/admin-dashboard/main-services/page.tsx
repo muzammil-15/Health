@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Switch } from "@/components/ui/switch";
-import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { ChevronLeft, ChevronRight, ClipboardEdit, Plus } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -20,6 +20,7 @@ interface Service {
   Aname: string;
   Status: boolean;
   desc: string;
+  icon: any;
 }
 
 const MianServices: React.FC = () => {
@@ -30,6 +31,7 @@ const MianServices: React.FC = () => {
       Aname: "Video Consultation",
       Status: false,
       desc: "Emphasizes the company's ability To work on commercial roofing.",
+      icon: ClipboardEdit,
     },
     {
       Image: "/images/vdconsult.png",
@@ -37,6 +39,7 @@ const MianServices: React.FC = () => {
       Aname: "Laboratory",
       Status: true,
       desc: "Emphasizes the company's ability To work on commercial roofing.",
+      icon: ClipboardEdit,
     },
     {
       Image: "/images/vdconsult.png",
@@ -44,6 +47,7 @@ const MianServices: React.FC = () => {
       Aname: " Doctor Visit",
       Status: true,
       desc: "Emphasizes the company's ability To work on commercial roofing.",
+      icon: ClipboardEdit,
     },
     {
       Image: "/images/vdconsult.png",
@@ -51,6 +55,7 @@ const MianServices: React.FC = () => {
       Aname: "Nurse Visit",
       Status: true,
       desc: "Emphasizes the company's ability To work on commercial roofing.",
+      icon: ClipboardEdit,
     },
     {
       Image: "/images/vdconsult.png",
@@ -58,6 +63,7 @@ const MianServices: React.FC = () => {
       Aname: "Video Consultation",
       Status: true,
       desc: "Emphasizes the company's ability To work on commercial roofing.",
+      icon: ClipboardEdit,
     },
     {
       Image: "/images/vdconsult.png",
@@ -65,6 +71,7 @@ const MianServices: React.FC = () => {
       Aname: "Video Consultation",
       Status: true,
       desc: "Emphasizes the company's ability To work on commercial roofing.",
+      icon: ClipboardEdit,
     },
   ];
 
@@ -86,11 +93,8 @@ const MianServices: React.FC = () => {
               collapsible
               className="mt-1 w-full bg-[#FFF] rounded-[8px] "
             >
-              <AccordionItem
-                className="  p-4    px-4"
-                value="item-1"
-              >
-                <div className="flex justify-between items-center gap-32">
+              <AccordionItem className="  p-4 px-4" value="item-1">
+                <div className="flex justify-between items-center gap-28">
                   <Image
                     width={70}
                     height={70}
@@ -100,6 +104,10 @@ const MianServices: React.FC = () => {
                   <span>{service.Ename}</span>
                   <span>{service.Aname}</span>
                   <Switch defaultChecked={service.Status} color="#af2245" />
+                  <button onClick={openModal}>
+                    {/* Render the icon component within the button */}
+                    {service.icon && <service.icon color="#af2245"/>}
+                    </button>
                   <AccordionTrigger></AccordionTrigger>
                 </div>
 
@@ -113,13 +121,9 @@ const MianServices: React.FC = () => {
       ));
   };
 
-
-
   const handlePageChange = (newPage: number): void => {
     setCurrentPage(newPage);
   };
-
-  
 
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -160,14 +164,17 @@ const MianServices: React.FC = () => {
                 height={50}
               />
             </div>
-            <button onClick={openModal} className="flex gap-2 border-dashed justify-center py-2 px-10 rounded-lg items-center border border-[#af2245] bg-[#AF22451A]  text-[#af2245] ">
+            <button
+              onClick={openModal}
+              className="flex gap-2 border-dashed justify-center py-2 px-10 rounded-lg items-center border border-[#af2245] bg-[#AF22451A]  text-[#af2245] "
+            >
               <Plus color="#af2245" /> <span>Add New Service</span>
             </button>
           </div>
         </div>
       </div>
       {/* show services */}
-      <div className="w-full py-3 bg-[#af2245] mt-10 rounded-t-[6px] text-white flex justify-start gap-40 px-10 items-center">
+      <div className="w-full py-3 bg-[#af2245] mt-10 rounded-t-[6px] text-white flex justify-start gap-36 px-10 items-center">
         <span>Image</span>
         <span>En Name</span>
         <span>Ar Name</span>
@@ -183,20 +190,27 @@ const MianServices: React.FC = () => {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
           className="flex justify-center gap-2 py-2 px-3 border border-[#af2245] rounded-lg items-center  text-[#af2245] "
-        ><ChevronLeft color="#af2245" />
-           <span>Previous</span>
+        >
+          <ChevronLeft color="#af2245" />
+          <span>Previous</span>
         </button>
-        <span className="bg-[#AF22451A] text-[#af2245] rounded-sm py-1 px-3">{currentPage}</span>
+        <span className="bg-[#AF22451A] text-[#af2245] rounded-sm py-1 px-3">
+          {currentPage}
+        </span>
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPageCount}
           className="flex justify-center gap-2 py-2 px-3 border border-[#af2245] rounded-lg items-center  text-[#af2245] "
         >
-           <span>Next</span>
+          <span>Next</span>
           <ChevronRight color="#af2245" />
         </button>
       </div>
-      <AddMainService isModalOpen={isModalOpen} setModalOpen={setModalOpen} closeModal={closeModal}/>
+      <AddMainService
+        isModalOpen={isModalOpen}
+        setModalOpen={setModalOpen}
+        closeModal={closeModal}
+      />
     </div>
   );
 };
