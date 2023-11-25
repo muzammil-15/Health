@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Accordion,
@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Switch } from "@/components/ui/switch";
+import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -76,30 +77,37 @@ const MianServices: React.FC = () => {
     return data
       .slice(startIndex, endIndex)
       .map((service: Service, ind: number) => (
-        <div key={ind}><div key={ind}>
-        <Accordion
-          type="single"
-          collapsible
-          className="mt-5 w-full Shadowbg"
-        >
-          <AccordionItem
-            className="bg-[#FFF]  p-4   rounded-[8px] px-4"
-            value="item-1"
-          >
-            <div className="flex justify-between items-center gap-32">
-              <Image width={70} height={70} alt="image" src={service.Image} />
-              <p>{service.Ename}</p>
-              <p>{service.Aname}</p>
-              <Switch defaultChecked={service.Status} />
-              <AccordionTrigger></AccordionTrigger>
-            </div>
+        <div key={ind}>
+          <div key={ind}>
+            <Accordion
+              type="single"
+              collapsible
+              className="mt-1 w-full bg-[#FFF] rounded-[8px] "
+            >
+              <AccordionItem
+                className="  p-4    px-4"
+                value="item-1"
+              >
+                <div className="flex justify-between items-center gap-32">
+                  <Image
+                    width={70}
+                    height={70}
+                    alt="image"
+                    src={service.Image}
+                  />
+                  <span>{service.Ename}</span>
+                  <span>{service.Aname}</span>
+                  <Switch defaultChecked={service.Status} color="#af2245" />
+                  <AccordionTrigger></AccordionTrigger>
+                </div>
 
-            <AccordionContent className="mt-5">
-              {service.desc}
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div></div>
+                <AccordionContent className="mt-5">
+                  {service.desc}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
       ));
   };
 
@@ -127,7 +135,7 @@ const MianServices: React.FC = () => {
           <p className="mt-5">you have 10 List of main Services</p>
 
           <div className=" gap-5 w-full justify-between flex items-center    ">
-            <div className="sm:w-[40%]   h-[50px] p-3  flex border border-gray-700   items-center rounded-[5px] bg-[#FFF]">
+            <div className="sm:w-[40%]   h-[50px] p-3  flex    items-center rounded-[5px] bg-[#FFF]">
               <input
                 className="w-[80%] h-[45px] outline-none "
                 placeholder="Search your lab tests & Packages "
@@ -140,14 +148,14 @@ const MianServices: React.FC = () => {
                 height={50}
               />
             </div>
-            <button className="flex justify-center py-2 px-10 rounded-lg items-center bg-[#af2245] text-[#FFF] ">
-              Add New Service
+            <button className="flex gap-2 justify-center py-2 px-10 rounded-lg items-center border border-[#af2245] bg-[#AF22451A]  text-[#af2245] ">
+              <Plus color="#af2245" /> <span>Add New Service</span>
             </button>
           </div>
         </div>
       </div>
       {/* show services */}
-      <div className="w-full py-3 bg-[#af2245] mt-10 text-white flex justify-start gap-40 px-10 items-center">
+      <div className="w-full py-3 bg-[#af2245] mt-10 rounded-t-[6px] text-white flex justify-start gap-40 px-10 items-center">
         <span>Image</span>
         <span>En Name</span>
         <span>Ar Name</span>
@@ -155,24 +163,25 @@ const MianServices: React.FC = () => {
       </div>
 
       {/* show services */}
-      <div className="w-full py-5 flex flex-col gap-3">{renderServices()}</div>
+      <div className="w-full py-2 flex flex-col gap-3">{renderServices()}</div>
 
       {/* Pagination */}
       <div className="mt-5 flex gap-3 items-center">
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="flex justify-center py-2 px-5 border border-[#af2245] rounded-lg items-center  text-[#af2245] "
-        >
-          Previous
+          className="flex justify-center gap-2 py-2 px-3 border border-[#af2245] rounded-lg items-center  text-[#af2245] "
+        ><ChevronLeft color="#af2245" />
+           <span>Previous</span>
         </button>
-        <span>{currentPage}</span>
+        <span className="bg-[#AF22451A] text-[#af2245] rounded-sm py-1 px-3">{currentPage}</span>
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPageCount}
-          className="flex justify-center py-2 px-5 border border-[#af2245] rounded-lg items-center  text-[#af2245] "
+          className="flex justify-center gap-2 py-2 px-3 border border-[#af2245] rounded-lg items-center  text-[#af2245] "
         >
-          Next
+           <span>Next</span>
+          <ChevronRight color="#af2245" />
         </button>
       </div>
     </div>

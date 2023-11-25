@@ -1,6 +1,6 @@
 
 import DNavbar from "@/components/Navbar-dashboard";
-import { Sidebar } from "@/components/Sidebar";
+import Sidebar  from "@/components/Sidebar";
 
 import type { Metadata } from "next";
 
@@ -15,18 +15,18 @@ export default function AdmindashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <div className="h-full relative">
+
+        <main className="h-full relative bg-[#F6F7F9]">
           <div className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 z-80 bg-gray-900">
             <Sidebar />
           </div>
           <div className="md:pl-72 pb-10">
             <DNavbar />
             {children}
+            {/* Footer component is not included here */}
+           
           </div>
-        </div>
-      </body>
-    </html>
+        </main>
+  
   );
 }

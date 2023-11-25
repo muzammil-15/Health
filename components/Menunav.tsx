@@ -22,8 +22,8 @@ const Menunav = () => {
             <li className="px-4 py-2 ">
               <Link href="#"><Image src="/images/logo.png" alt='not found' width={50} height={50} /></Link></li>
             {
-              navlinks.map((item) => (
-                <li className="px-4 py-2 hover:bg-gray-100">
+              navlinks.map((item, ind) => (
+                <li className="px-4 py-2 hover:bg-gray-100" key={ind}>
                   <Link className='text-[#000000]' key={item.title} href={item.url}>{item.title}</Link></li>
               ))
             }

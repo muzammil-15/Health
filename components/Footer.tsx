@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import { footerLinks } from '@/constants';
+import dynamic from 'next/dynamic';
 function Footer() {
   return (
     <>
@@ -13,7 +14,7 @@ function Footer() {
         <div className='flex justify-between gap-5 flex-wrap lg:flex-nowrap'>
 
           <div className=''>
-            <Image src="/images/footerlogo.png" alt='not found' width={100} height={100}/>
+            <Image src="/images/logo.png" alt='not found' width={100} height={100}/>
 
             <div className="flex items-center gap-5 mt-5">
                 <Link href="#"><Image src="/images/fb.png" alt='not found ' width={50} height={50}/> </Link>
@@ -31,7 +32,7 @@ function Footer() {
           
           {
             item.links.map((itm,ind)=>(
-              <Link href="#" className='text-[#FFF] text-sm'>{itm.title}</Link>
+              <Link href="#" className='text-[#FFF] text-sm' key={ind}>{itm.title}</Link>
 
             ))
           }
@@ -53,4 +54,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default dynamic (() => Promise.resolve(Footer), {ssr: false})

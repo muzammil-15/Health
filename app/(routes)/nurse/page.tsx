@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { Checkbox } from "@/components/ui/checkbox";
 
-function page() {
+const  Page=()=> {
   const [details, setdetails] = useState(false);
 
   const handleDetail = () => {
@@ -169,4 +169,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

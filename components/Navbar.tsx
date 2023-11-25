@@ -8,6 +8,7 @@ import { navlinks } from "@/constants";
 import { useRouter } from "next/navigation";
 import Menunav from "./Menunav";
 import { Languages } from "./Languages";
+import dynamic from "next/dynamic";
 // import ShopDropdown from './ShopDropdown';
 
 function Navbar() {
@@ -56,4 +57,5 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default dynamic (() => Promise.resolve(Navbar), {ssr: false})
+

@@ -9,7 +9,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CalenderDate } from "@/components/Calender";
 import { checkupTimings } from "@/lib/utils";
 
-function page() {
+const Page =()=> {
   const [date, setDate] = React.useState<Date>();
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [details, setdetails] = useState(false);
@@ -259,7 +259,7 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
 
 // checup timing
 
