@@ -97,7 +97,7 @@ const AddMainService: React.FC<MyComponentProps> = ({
                     Upload Image
                   </span>
                 </div>
-                <div className="flex justify-start items-center gap-10">
+                <div className="flex flex-col gap-5 md:flex-row  justify-start items-center md:gap-10">
                   <div className="flex flex-col  gap-3">
                     <label
                       htmlFor="enName"

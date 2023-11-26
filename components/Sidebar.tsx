@@ -30,7 +30,7 @@ const routes = [
   {
     label: "Dashboard",
     icon: LayoutGrid,
-    href: "",
+    href: "/admin-dashboard",
   },
   {
     label: "Add Health Care",
@@ -75,12 +75,12 @@ const routes = [
     subRoutes: [
       {
         label: "Healthcare Request",
-        href: "/add-main-service",
+        href: "",
         icon: CalendarDays,
       },
       {
         label: "Doctor's Request's",
-        href: "/add-sub-service",
+        href: "",
         icon: CalendarDays,
       },
     ],
@@ -93,17 +93,17 @@ const routes = [
     subRoutes: [
       {
         label: "V. Cnnsultation",
-        href: "/add-main-service",
+        href: "",
         icon: ListChecks,
       },
       {
         label: "Home Visit Doctor",
-        href: "/add-sub-service",
+        href: "",
         icon: ListChecks,
       },
       {
         label: "Home Visit Nurse",
-        href: "/add-sub-service",
+        href: "",
         icon: ListChecks,
       },
     ],
@@ -152,7 +152,7 @@ const renderSubRoutes = (
       {subRoutes.map((subRoute) => (
         <Link
         href={subRoute.href}
-        className="flex p-[14px] w-full mt-[14px]  text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245]"
+        className="flex p-[14px] w-full mt-[14px]  text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245] focus:bg-[#AF22451A]"
       >
         <div className="flex items-center flex-1">
           <subRoute.icon
@@ -178,12 +178,15 @@ const Sidebar: React.FC = () => {
     setShowSubRoutes: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
     setShowSubRoutes((prev) => !prev);
+    setFocused(true);
+    
   };
+  const [focused, setFocused] = useState(false);
 
   const pathname = usePathname();
 
   return (
-    <div className="space-y-4 py-4 hidden lg:flex w-[300px] px-4 gap-5 flex-col h-full bg-[#FFFFFF] border border-r-2 overflow-y-scroll">
+    <div className="space-y-4 py-4  w-[300px] px-4 gap-5 flex-col h-full bg-[#FFFFFF] border border-r-2 overflow-y-scroll">
 
       <div className="px-3  flex-1">
         <Link href="/" className="">
@@ -198,7 +201,7 @@ const Sidebar: React.FC = () => {
               {route.subRoutes ? (
                 // Render dropdown with sub-routes
                 <>
-                  <div
+                  <div 
                     onClick={() => {
                       if (route.label === "Services") {
                         toggleSubRoutes(setShowServicesSubRoutes);
@@ -211,9 +214,9 @@ const Sidebar: React.FC = () => {
                         // You can add similar logic for other routes if needed
                       }
                     }}
-                    className="flex p-[14px] w-full mt-[14px] text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition relative hover:text-[#AF2245]"
+                    className={` flex p-[14px] w-full mt-[14px] text-[16px] font-[400] justify-start  text-[#505F65] cursor-pointer rounded-lg transition relative hover:text-[#AF2245] ${focused ? 'bg-[#AF22451A]' : 'bg-[#F1F2F4]'} `}
                   >
-                    <div className="flex items-center flex-1">
+                    <div className="flex items-center flex-1 ">
                       <route.icon
                         className={"h-[30px] w-[30px] mr-3"}
                         color="#505F65"
@@ -221,7 +224,7 @@ const Sidebar: React.FC = () => {
                       {route.label}
                     </div>
                     {route.label === "Services" && (
-                      <div className="absolute top-[50%] right-4 transform -translate-y-1/2">
+                      <div className="absolute top-[50%] right-4 transform -translate-y-1/2 ">
                         {showServicesSubRoutes ? <UpIcon /> : <DownIcon />}
                       </div>
                     )}
@@ -256,7 +259,7 @@ const Sidebar: React.FC = () => {
                 // Render regular route
                 <Link
                   href={route.href}
-                  className="flex p-[14px] w-full mt-[14px]  text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245]"
+                  className="flex p-[14px] w-full mt-[14px]  text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245] focus:bg-[#AF22451A]"
                 >
                   <div className="flex items-center flex-1">
                     <route.icon
@@ -274,7 +277,7 @@ const Sidebar: React.FC = () => {
       <div>
         <Link
           href={""}
-          className="flex p-[14px] w-full text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245]"
+          className="flex p-[14px] w-full text-[16px] font-[400] justify-start bg-[#F1F2F4] text-[#505F65] cursor-pointer rounded-lg transition hover:text-[#AF2245] focus:bg-[#AF22451A]"
         >
           <div className="flex items-center flex-1">
             <LogOut color="#Af2245" className={"h-[30px] w-[30px] mr-3"} />

@@ -1,7 +1,7 @@
 "use client";
 
 import AddMainService from "@/components/AddMainService";
-import VertualModal from "@/components/VertualModal";
+
 import {
   Accordion,
   AccordionContent,
@@ -27,9 +27,25 @@ const MianServices: React.FC = () => {
   const data: Service[] = [
     {
       Image: "/images/vdconsult.png",
-      Ename: "Video Consultation",
-      Aname: "Video Consultation",
-      Status: false,
+      Ename: "Laboratory",
+      Aname: "Laboratory",
+      Status: true,
+      desc: "Emphasizes the company's ability To work on commercial roofing.",
+      icon: ClipboardEdit,
+    },
+    {
+      Image: "/images/vdconsult.png",
+      Ename: " Doctor Visit",
+      Aname: " Doctor Visit",
+      Status: true,
+      desc: "Emphasizes the company's ability To work on commercial roofing.",
+      icon: ClipboardEdit,
+    },
+    {
+      Image: "/images/vdconsult.png",
+      Ename: "Nurse Visit",
+      Aname: "Nurse Visit",
+      Status: true,
       desc: "Emphasizes the company's ability To work on commercial roofing.",
       icon: ClipboardEdit,
     },
@@ -57,22 +73,7 @@ const MianServices: React.FC = () => {
       desc: "Emphasizes the company's ability To work on commercial roofing.",
       icon: ClipboardEdit,
     },
-    {
-      Image: "/images/vdconsult.png",
-      Ename: "Video Consultation",
-      Aname: "Video Consultation",
-      Status: true,
-      desc: "Emphasizes the company's ability To work on commercial roofing.",
-      icon: ClipboardEdit,
-    },
-    {
-      Image: "/images/vdconsult.png",
-      Ename: "Video Consultation",
-      Aname: "Video Consultation",
-      Status: true,
-      desc: "Emphasizes the company's ability To work on commercial roofing.",
-      icon: ClipboardEdit,
-    },
+    
   ];
 
   const itemsPerPage: number = 4;
@@ -94,12 +95,13 @@ const MianServices: React.FC = () => {
               className="mt-1 w-full bg-[#FFF] rounded-[8px] "
             >
               <AccordionItem className="  p-4 px-4" value="item-1">
-                <div className="flex justify-between items-center gap-28">
+                <div className="flex justify-between items-center self-start">
                   <Image
-                    width={70}
-                    height={70}
+                    width={80}
+                    height={80}
                     alt="image"
                     src={service.Image}
+                    className="bg-[#AF22451A] p-3 rounded-md"
                   />
                   <span>{service.Ename}</span>
                   <span>{service.Aname}</span>
@@ -148,7 +150,7 @@ const MianServices: React.FC = () => {
       <div className="flex flex-col sm:flex-row  mt-5 items-center">
         <div className="left w-full flex flex-col gap-3 ">
           <h2 className="subheading">Our Services</h2>
-          <p className="mt-5">you have 10 List of main Services</p>
+          <p className="mt-5">You have 10 List of main Services</p>
 
           <div className=" gap-5 w-full justify-between flex items-center    ">
             <div className="sm:w-[40%]   h-[50px] p-3  flex    items-center rounded-[5px] bg-[#FFF]">
@@ -174,11 +176,13 @@ const MianServices: React.FC = () => {
         </div>
       </div>
       {/* show services */}
-      <div className="w-full py-3 bg-[#af2245] mt-10 rounded-t-[6px] text-white flex justify-start gap-36 px-10 items-center">
+      <div className="w-full py-3 bg-[#af2245] mt-10 rounded-t-[6px] text-white self-start flex justify-between  px-10 items-center">
         <span>Image</span>
         <span>En Name</span>
         <span>Ar Name</span>
         <span>Status</span>
+        <span></span>
+        <span></span>
       </div>
 
       {/* show services */}
@@ -206,6 +210,7 @@ const MianServices: React.FC = () => {
           <ChevronRight color="#af2245" />
         </button>
       </div>
+
       <AddMainService
         isModalOpen={isModalOpen}
         setModalOpen={setModalOpen}
